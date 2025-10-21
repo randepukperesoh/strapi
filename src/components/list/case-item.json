@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_list_case_items",
+  "info": {
+    "displayName": "caseItem",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "results": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

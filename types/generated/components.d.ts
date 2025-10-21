@@ -1,75 +1,118 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface ListAdvantages extends Struct.ComponentSchema {
+  collectionName: 'components_list_advantages';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'advantages';
+    icon: 'bold';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
+    description: Schema.Attribute.String;
+    descriptionSecondary: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface ListCaseItem extends Struct.ComponentSchema {
+  collectionName: 'components_list_case_items';
   info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'caseItem';
+    icon: 'sun';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    description: Schema.Attribute.String;
+    results: Schema.Attribute.Component<'list.string-list', true>;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface ListListOfAdvantages extends Struct.ComponentSchema {
+  collectionName: 'components_list_list_of_advantages';
   info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    displayName: 'listOfAdvantages';
+    icon: 'bulletList';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface ListShortAdvantages extends Struct.ComponentSchema {
+  collectionName: 'components_list_short_advantages';
   info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'shortAdvantages';
+    icon: 'bulletList';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ListSingleService extends Struct.ComponentSchema {
+  collectionName: 'components_list_single_services';
+  info: {
+    displayName: 'single-service';
+    icon: 'layer';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    list: Schema.Attribute.Component<'list.string-list', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ListStringList extends Struct.ComponentSchema {
+  collectionName: 'components_list_string_lists';
+  info: {
+    displayName: 'stringList';
+    icon: 'server';
+  };
+  attributes: {};
+}
+
+export interface ListTeamItem extends Struct.ComponentSchema {
+  collectionName: 'components_list_team_items';
+  info: {
+    displayName: 'teamItem';
+    icon: 'plus';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    fio: Schema.Attribute.String;
+    photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    profession: Schema.Attribute.String;
+    professionSecondary: Schema.Attribute.String;
+    skill: Schema.Attribute.Component<'list.string-list', true>;
+  };
+}
+
+export interface SeoSeo extends Struct.ComponentSchema {
+  collectionName: 'components_seo_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'television';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    keyword: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'list.advantages': ListAdvantages;
+      'list.case-item': ListCaseItem;
+      'list.list-of-advantages': ListListOfAdvantages;
+      'list.short-advantages': ListShortAdvantages;
+      'list.single-service': ListSingleService;
+      'list.string-list': ListStringList;
+      'list.team-item': ListTeamItem;
+      'seo.seo': SeoSeo;
     }
   }
 }

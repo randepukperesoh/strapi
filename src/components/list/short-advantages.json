@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_list_short_advantages",
+  "info": {
+    "displayName": "shortAdvantages",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

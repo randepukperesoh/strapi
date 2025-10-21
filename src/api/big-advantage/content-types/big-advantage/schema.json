@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "big_advantages",
+  "info": {
+    "singularName": "big-advantage",
+    "pluralName": "big-advantages",
+    "displayName": "bigAdvantage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "component": "list.advantages",
+      "repeatable": true
+    }
+  }
+}

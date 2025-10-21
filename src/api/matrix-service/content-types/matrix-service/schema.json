@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matrix_services",
+  "info": {
+    "singularName": "matrix-service",
+    "pluralName": "matrix-services",
+    "displayName": "matrixService"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "services": {
+      "type": "component",
+      "component": "list.single-service",
+      "repeatable": true
+    }
+  }
+}

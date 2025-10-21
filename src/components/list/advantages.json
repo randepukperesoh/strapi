@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_list_advantages",
+  "info": {
+    "displayName": "advantages",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "descriptionSecondary": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

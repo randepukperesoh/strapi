@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "our_cases",
+  "info": {
+    "singularName": "our-case",
+    "pluralName": "our-cases",
+    "displayName": "our-case"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cases": {
+      "type": "component",
+      "component": "list.case-item",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

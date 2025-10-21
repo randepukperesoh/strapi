@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "heroes",
+  "info": {
+    "singularName": "hero",
+    "pluralName": "heroes",
+    "displayName": "hero"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "shortAdventages": {
+      "type": "component",
+      "component": "list.short-advantages",
+      "repeatable": true
+    },
+    "ThreePostOfAdvantages": {
+      "type": "component",
+      "component": "list.list-of-advantages",
+      "repeatable": true
+    }
+  }
+}

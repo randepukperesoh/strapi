@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_list_team_items",
+  "info": {
+    "displayName": "teamItem",
+    "icon": "plus"
+  },
+  "options": {},
+  "attributes": {
+    "fio": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
+    },
+    "professionSecondary": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "skill": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

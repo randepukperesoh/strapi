@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_list_single_services",
+  "info": {
+    "displayName": "single-service",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
