@@ -625,7 +625,7 @@ export interface ApiMatrixServiceMatrixService
   };
 }
 
-export interface ApiOurCaseOurCase extends Struct.CollectionTypeSchema {
+export interface ApiOurCaseOurCase extends Struct.SingleTypeSchema {
   collectionName: 'our_cases';
   info: {
     displayName: 'our-case';
@@ -648,6 +648,45 @@ export interface ApiOurCaseOurCase extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Struct.CollectionTypeSchema {
+  collectionName: 'products';
+  info: {
+    displayName: 'product';
+    pluralName: 'products';
+    singularName: 'product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    advantages: Schema.Attribute.Component<'list.string-list', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    functions: Schema.Attribute.Component<'list.string-list', true>;
+    icon: Schema.Attribute.Enumeration<
+      ['Users', 'BarChart3', 'Building2', 'Smartphone']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product.product'
+    > &
+      Schema.Attribute.Private;
+    photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    price: Schema.Attribute.BigInteger;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    subTitle: Schema.Attribute.String;
+    techList: Schema.Attribute.Component<'list.string-list', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1199,6 +1238,7 @@ declare module '@strapi/strapi' {
       'api::home-seo.home-seo': ApiHomeSeoHomeSeo;
       'api::matrix-service.matrix-service': ApiMatrixServiceMatrixService;
       'api::our-case.our-case': ApiOurCaseOurCase;
+      'api::product.product': ApiProductProduct;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

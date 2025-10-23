@@ -12,13 +12,41 @@
     "title": {
       "type": "string"
     },
-    "description": {
+    "shortDescription": {
       "type": "string"
     },
     "results": {
       "type": "component",
       "component": "list.string-list",
       "repeatable": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "titleMedia": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mediaSlider": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   },
   "config": {}

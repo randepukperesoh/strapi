@@ -5,6 +5,10 @@
     "icon": "server"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "item": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

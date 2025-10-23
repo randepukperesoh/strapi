@@ -20,10 +20,19 @@ export interface ListCaseItem extends Struct.ComponentSchema {
     icon: 'sun';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Blocks;
+    mediaSlider: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     results: Schema.Attribute.Component<'list.string-list', true>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    shortDescription: Schema.Attribute.String;
     tag: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    titleMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
   };
 }
 
@@ -70,7 +79,9 @@ export interface ListStringList extends Struct.ComponentSchema {
     displayName: 'stringList';
     icon: 'server';
   };
-  attributes: {};
+  attributes: {
+    item: Schema.Attribute.String;
+  };
 }
 
 export interface ListTeamItem extends Struct.ComponentSchema {

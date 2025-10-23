@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "price": {
+      "type": "biginteger"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "functions": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    },
+    "techList": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    },
+    "advantages": {
+      "type": "component",
+      "component": "list.string-list",
+      "repeatable": true
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "Users",
+        "BarChart3",
+        "Building2",
+        "Smartphone"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    }
+  }
+}
