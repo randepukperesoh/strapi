@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "briefs",
+  "info": {
+    "singularName": "brief",
+    "pluralName": "briefs",
+    "displayName": "brief"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    }
+  }
+}

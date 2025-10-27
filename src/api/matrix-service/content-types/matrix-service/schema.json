@@ -11,19 +11,21 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "tag": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
     "description": {
       "type": "string"
     },
-    "services": {
+    "list": {
       "type": "component",
-      "component": "list.single-service",
+      "component": "list.string-list",
       "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

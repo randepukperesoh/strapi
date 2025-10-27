@@ -534,6 +534,68 @@ export interface ApiBigAdvantageBigAdvantage
   };
 }
 
+export interface ApiBriefBrief extends Struct.SingleTypeSchema {
+  collectionName: 'briefs';
+  info: {
+    displayName: 'brief';
+    pluralName: 'briefs';
+    singularName: 'brief';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::brief.brief'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCaseCase extends Struct.CollectionTypeSchema {
+  collectionName: 'cases';
+  info: {
+    displayName: 'case';
+    pluralName: 'cases';
+    singularName: 'case';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::case.case'> &
+      Schema.Attribute.Private;
+    mediaSlider: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    results: Schema.Attribute.Component<'list.string-list', true>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    shortDescription: Schema.Attribute.String;
+    tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    titleMedia: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHeroHero extends Struct.SingleTypeSchema {
   collectionName: 'heroes';
   info: {
@@ -609,6 +671,7 @@ export interface ApiMatrixServiceMatrixService
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.String;
+    list: Schema.Attribute.Component<'list.string-list', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -616,38 +679,7 @@ export interface ApiMatrixServiceMatrixService
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    services: Schema.Attribute.Component<'list.single-service', true>;
-    tag: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiOurCaseOurCase extends Struct.SingleTypeSchema {
-  collectionName: 'our_cases';
-  info: {
-    displayName: 'our-case';
-    pluralName: 'our-cases';
-    singularName: 'our-case';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    cases: Schema.Attribute.Component<'list.case-item', true>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::our-case.our-case'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1234,10 +1266,11 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
       'api::big-advantage.big-advantage': ApiBigAdvantageBigAdvantage;
+      'api::brief.brief': ApiBriefBrief;
+      'api::case.case': ApiCaseCase;
       'api::hero.hero': ApiHeroHero;
       'api::home-seo.home-seo': ApiHomeSeoHomeSeo;
       'api::matrix-service.matrix-service': ApiMatrixServiceMatrixService;
-      'api::our-case.our-case': ApiOurCaseOurCase;
       'api::product.product': ApiProductProduct;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
